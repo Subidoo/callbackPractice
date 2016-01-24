@@ -25,6 +25,9 @@ and what you should write is the sayHi function that makes the code above work,
 
 
   //Code Here for first
+  function first(foo, cb) {
+    cb(foo[0]);
+  }
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -40,6 +43,10 @@ first(names, function(firstName){
 
 
   //Code Here for last
+  function last(foo, cb) {
+    cb(foo.pop());
+
+  }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -58,7 +65,9 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
-
+  function multiply(var1, var2, cb) {
+    cb(var1 * var2);
+  }
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 })
@@ -74,6 +83,15 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+  function contains(arr, str, cb) {
+    for (var i = 0; i < arr.length; i++) {
+      if (str === arr[i]) {
+        cb(true);
+      } else{
+      cb(false);
+      }
+    }
+  }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -94,6 +112,15 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+function uniq(foo, cb) {
+  var n = []; 
+   for(var i = 0; i < foo.length; i++) 
+   {
+       if (n.indexOf(foo[i]) == -1) n.push(foo[i]);
+   }
+  cb(n)  
+}
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -110,6 +137,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+    function each(foo, cb) {
+      for (var i = 0; i < foo.length; i++) {
+        cb(foo[i], i);
+      }
+    }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -127,6 +159,11 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+ function getUserById(foo, woo, cb) {
+    for(var i in foo) {
+      if(foo[i].id === woo) {cb(foo[i])}
+    }
+}
 
 var users = [
   {
